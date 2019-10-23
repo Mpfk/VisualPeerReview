@@ -1,0 +1,10 @@
+/* CSS Document */
+.instructions p {
+	font-size: smaller;
+}
+.rubric_submit {
+	text-align: center;
+}
+.submit_button {
+	width: 100%;
+}

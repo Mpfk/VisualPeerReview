@@ -1,0 +1,21 @@
+/* CSS Document */
+.executor_header {
+	background-color: #dcdcdc;
+}
+.execution_container {
+	background-color: #f0f0f0;
+	padding: 1em;
+	height: inherit;
+}
+.executor_options {
+	text-align: right;
+	margin-top: 0.5em;
+}
+.execution_placeholder {
+	width: 100%;
+	text-align: center;
+	font-size: smaller;
+	font-style: italic;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}

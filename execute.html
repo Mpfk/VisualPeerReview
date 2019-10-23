@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Page Info & Meta -->
+		<!--========================================================================-->
+		<meta charset="UTF-8">
+		<title>Untitled Document</title>
+		
+		<!-- Styles & Typefaces -->
+		<!--========================================================================-->
+		<!-- Bootstrap CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<!-- Editor Style -->
+		<link rel="stylesheet" href="assets/css/editor.css">
+		<!-- Rubric Style -->
+		<link rel="stylesheet" href="assets/css/rubric.css">
+		<!-- Executor Style -->
+		<link rel="stylesheet" href="assets/css/executor.css">
+		<!-- Font-Awesome Icons -->
+		<link rel="stylesheet" href="assets/typeface/font-awesome/css/all.min.css">
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+			
+				<!-- Left Panel : Code Editor & Console -->
+				<!--========================================================================-->
+				<div class="col-12 col-md-9">
+					<!-- Editor Header -->
+					<div class="row editor_header">
+						<!-- Section Title -->
+						<div class="col-6">
+							<h2>Editor</h2>
+						</div>
+						<!-- Code Language Selector -->
+						<div class="col-6 editor_codeselect">
+							<div class="btn-group">
+								<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Java <i class="fab fa-java"></i>
+								</button>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item active" href="#">Java <i class="fab fa-java"></i></a>
+									<a class="dropdown-item disabled" href="#">R</a>
+									<a class="dropdown-item disabled" href="#">Python <i class="fab fa-python"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Editor -->
+					<div class="row editor">
+<!--Must present final spacing & formatting within PRE tag-->
+<pre id="editor">
+function foo(items) {
+		var i;
+		for (i = 0; i &lt; items.length; i++) {
+		alert("Ace Rocks " + items[i]);
+	}
+}
+</pre>					
+					</div>
+					<!--Console-->
+					<div class="row executor_header">
+						<!-- Section Title -->
+						<div class="col-6">
+							<h2>Execution</h2>
+						</div>
+						<!-- Execution Options -->
+						<div class="col-6 executor_options">
+							<button type="button" class="btn btn-sm btn-warning">Clear <i class="fas fa-paint-roller"></i></button>
+							<button type="button" class="btn btn-sm btn-info">Run Code <i class="fas fa-play"></i></button>
+						</div>
+					</div>
+					<!-- Execution Window -->
+					<div id="execution_container" class="row execution_container">
+						<div class="execution_placeholder">
+							Press 'Run Code <i class="fas fa-play"></i>' button above to execute.
+						</div>
+					</div>
+				</div>
+				
+				<!-- Right Panel : Info & Submit -->
+				<!--========================================================================-->
+				<div class="col-12 col-md-3 instructions">
+					<!-- Section Title -->
+					<h2>Rubric</h2>
+					<!-- Assignment Info -->
+					<p>Assignment instructions go here.</p>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+					<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
+					<!-- Submit Button -->
+					<div class="rubric_submit">
+						<button class="btn btn-success submit_button disabled">Submit Code <i class="fas fa-paper-plane"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Page JavaScript -->
+		<!--========================================================================-->
+		<!-- Code Language Selector -->
+		<!-- Editor Style -->
+		<script src="assets/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var editor = ace.edit("editor");
+			editor.setTheme("ace/theme/twilight");
+			editor.session.setMode("ace/mode/javascript");
+		    editor.setAutoScrollEditorIntoView(true);
+		</script>
+		<!-- Clear Execution Container -->
+		
+		
+		<!-- Bootstrap CDN JavaScript -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>
