@@ -4,6 +4,7 @@
 		<!-- Page Info & Meta -->
 		<!--========================================================================-->
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Code Assignment</title>
 		
 		<!-- Styles & Typefaces -->
@@ -60,8 +61,12 @@
 						</div>
 						<!-- Execution Options -->
 						<div class="col-6 executor_options">
-							<button type="button" class="btn btn-sm btn-warning" onclick="clearExecution()">Clear <i class="fas fa-paint-roller"></i></button>
-							<button type="button" class="btn btn-sm btn-info disabled">Run Code <i class="fas fa-play"></i></button>
+							<!-- Clear Code -->
+							<button id="clearCodeButton" type="button" class="btn btn-sm btn-warning" onclick="clearExecution()">Clear <i class="fas fa-paint-roller"></i></button>
+							<!-- Abort Code (Hidden until code is run) -->
+							<button id="abortCodeButton" type="button" class="btn btn-sm btn-danger" onclick="abortExecution()" style="display: none;">Abort <i class="far fa-window-close"></i></button>
+							<!-- Run Code -->
+							<button id="runCodeButton" type="button" class="btn btn-sm btn-info" onClick="runCode()">Run Code <i class="fas fa-play"></i></button>
 						</div>
 					</div>
 					<!-- Execution Window -->
@@ -117,7 +122,7 @@
 					languageChange.disabled = true;
 				}
 				else {
-					languageChange.disable = false;
+					languageChange.disabled = false;
 				}
 			}
 			
@@ -132,28 +137,90 @@
 			}
 			
 			//////// PER ASSIGNMENT SETTINGS ////////
-			allowLanguageChange(true); 	// Allow or prevent user from changing language. False = Disable Changes, True = Enable Changes.
-			setLanguage("java"); 		// Set Default Language - Can change depending on specific assignment details from rubric.
-			
+			// Set Provided Code
 			// Set the code provided when user visits the page. Must be EXCAPED text formatted with proper spaceing, as it would be in a PRE tag.
-			editor.setValue('\/\/ Example Java Code\r\nclass Main {\r\n    public static void main(String[] args) {\r\n        \r\n        \/\/ Print Hello World\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}');
+			var providedCode = '\/\/ Example Java Code\r\nclass Main {\r\n    public static void main(String[] args) {\r\n        \r\n        \/\/ Print Hello World\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}'
+			
+			allowLanguageChange(true); 		// Allow or prevent user from changing language. False = Disable Changes, True = Enable Changes.
+			setLanguage("java"); 			// Set Default Language - Can change depending on specific assignment details from rubric.
+			editor.setValue(providedCode);  // Fills Editor with Provided Code
+			
+		</script>
+		
+		<!-- Execution Scripts -->
+		<script type="text/javascript">
+			
+			// Re-EnableRunCode -- Resets the RunCodeButton
+			function reEnableRunCode() {
+				runCodeButton.disabled = false;
+				document.getElementById("runCodeButton").innerHTML = 'Run Code <i class=\"fas fa-play\"><\/i>';
+				// Hide Abort Button and Replace with Clear Button
+				document.getElementById("clearCodeButton").style.display = "inline";
+				document.getElementById("abortCodeButton").style.display = "none";
+			}
+			
+			// Clear Execution Function
+			function clearExecution() {
+				document.getElementById("execution_container").innerHTML = '<div class="execution_placeholder">Press \'Run Code <i class="fas fa-play"></i>\' button above to execute.</div>';
+			}
+			
+			// TimeOut Functuon -- Defines what happens when the execution times out
+			function timeOut() {
+				// Display Error
+				document.getElementById("execution_container").innerHTML = '<div class="execution_placeholder text-danger">An error occured when trying to compile your code. Time limit exceeded.</div>';
+				reEnableRunCode();
+			}
+			
+			// Set TimeOut Variable
+			var timeOutClock;
+			
+			// Run Code Function
+			function runCode() {
+				// Disable runCode Button & Change Value to prevent double-presses
+				runCodeButton.disabled = true;
+				document.getElementById("runCodeButton").innerHTML = 'Compiling <i class=\"fas fa-terminal\"><\/i>';
+				
+				// Hide Clear Button and Replace with Abort Button
+				document.getElementById("clearCodeButton").style.display = "none";
+				document.getElementById("abortCodeButton").style.display = "inline";
+				
+				// Empty Execution Continer
+				document.getElementById("execution_container").innerHTML = null;
+				
+				// Display Loading Animation
+				document.getElementById("execution_container").innerHTML = "<div class=\"loader\"><\/div>";
+				
+				// Start Timer, if execution is not returned before timer ends throw an error
+				timeOutClock = setTimeout(timeOut, 3000);
+				
+				// SEND CODE TO SERVER AND GET A RESPONSE
+				// HARD PART GOES HERE
+				//
+				//
+				//
+				
+				// Cancel Timer
+				//clearTimeout(timeOutClock);
+				
+				// Re-Enable runCode Button
+				//reEnableRunCode();
+			}
+			
+			// Abort Execution Function
+			function abortExecution() {
+				clearTimeout(timeOutClock);
+				clearExecution();
+				reEnableRunCode();
+			}
 		</script>
 		
 		<!-- On Leave Warning -->
-		<script type="text/javascript">
+		<!--script type="text/javascript">
 			// Warning before leaving the page (back button, or outgoinglink)
 			window.onbeforeunload = function() {
 				return "Are you sure you want to reload/leave this page? Doing so will eliminate all your work in the editor!";
 			};
-		</script>
-		
-		<!-- Clear Execution Container -->
-		<script type="text/javascript">
-			function clearExecution() {
-				var executionPlaceholder = '<div class="execution_placeholder">Press \'Run Code <i class="fas fa-play"></i>\' button above to execute.</div>';
-				document.getElementById("execution_container").innerHTML= executionPlaceholder; 
-			}
-		</script>
+		</script-->
 		
 		<!-- Bootstrap CDN JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

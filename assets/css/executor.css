@@ -19,3 +19,25 @@
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
+/*Loading Animation*/
+.loader {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	border: 10px solid #dcdcdc;
+	border-radius: 50%;
+	border-top: 10px solid #55b9cb;
+	width: 6em;
+	height: 6em;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+}
+/* For Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
