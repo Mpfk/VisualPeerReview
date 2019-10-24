@@ -69,7 +69,7 @@ class Main {
 						</div>
 						<!-- Execution Options -->
 						<div class="col-6 executor_options">
-							<button type="button" class="btn btn-sm btn-warning">Clear <i class="fas fa-paint-roller"></i></button>
+							<button type="button" class="btn btn-sm btn-warning" onclick="clearExecution()">Clear <i class="fas fa-paint-roller"></i></button>
 							<button type="button" class="btn btn-sm btn-info">Run Code <i class="fas fa-play"></i></button>
 						</div>
 					</div>
@@ -110,7 +110,12 @@ class Main {
 		    editor.setAutoScrollEditorIntoView(true);
 		</script>
 		<!-- Clear Execution Container -->
-		
+		<script type="text/javascript">
+			function clearExecution() {
+				var executionPlaceholder = '<div class="execution_placeholder">Press \'Run Code <i class="fas fa-play"></i>\' button above to execute.</div>';
+				document.getElementById("execution_container").innerHTML= executionPlaceholder; 
+			}
+		</script>
 		
 		<!-- Bootstrap CDN JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
