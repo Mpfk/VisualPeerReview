@@ -4,7 +4,7 @@
 		<!-- Page Info & Meta -->
 		<!--========================================================================-->
 		<meta charset="UTF-8">
-		<title>Untitled Document</title>
+		<title>Code Assignment</title>
 		
 		<!-- Styles & Typefaces -->
 		<!--========================================================================-->
@@ -42,7 +42,7 @@
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
 									<a class="dropdown-item" onclick="setLanguage('java')">Java <i class="fab fa-java"></i></a>
 									<a class="dropdown-item" onclick="setLanguage('python')">Python <i class="fab fa-python"></i></a>
-									<a class="dropdown-item" onclick="setLanguage('r')">R</a>
+									<a class="dropdown-item" onclick="setLanguage('r')">R <i class="fab fa-r-project"></i></a>
 								</div>
 							</div>
 						</div>
@@ -109,7 +109,7 @@
 			// Set Language Tags - Used to populate button text
 			var langTag_java = 'Java <i class=\"fab fa-java\"><\/i>';
 			var langTag_python = 'Python <i class=\"fab fa-python\"><\/i>';
-			var langTag_r = 'R';
+			var langTag_r = 'R <i class=\"fab fa-r-project\"><\/i>';
 			
 			// Allow Language Change Function
 			function allowLanguageChange(bool) {
@@ -137,6 +137,14 @@
 			
 			// Set the code provided when user visits the page. Must be EXCAPED text formatted with proper spaceing, as it would be in a PRE tag.
 			editor.setValue('\/\/ Example Java Code\r\nclass Main {\r\n    public static void main(String[] args) {\r\n        \r\n        \/\/ Print Hello World\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}');
+		</script>
+		
+		<!-- On Leave Warning -->
+		<script type="text/javascript">
+			// Warning before leaving the page (back button, or outgoinglink)
+			window.onbeforeunload = function() {
+				return "Are you sure you want to reload/leave this page? Doing so will eliminate all your work in the editor!";
+			};
 		</script>
 		
 		<!-- Clear Execution Container -->
