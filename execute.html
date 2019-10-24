@@ -51,11 +51,13 @@
 					<div class="row editor">
 <!--Must present final spacing & formatting within PRE tag-->
 <pre id="editor">
-function foo(items) {
-		var i;
-		for (i = 0; i &lt; items.length; i++) {
-		alert("Ace Rocks " + items[i]);
-	}
+// Example Java Code
+class Main {
+
+  public static void main(String[] args) {
+    System.out.println("Hello world!");
+  }
+  
 }
 </pre>					
 					</div>
@@ -104,7 +106,7 @@ function foo(items) {
 		<script>
 			var editor = ace.edit("editor");
 			editor.setTheme("ace/theme/twilight");
-			editor.session.setMode("ace/mode/javascript");
+			editor.session.setMode("ace/mode/java");
 		    editor.setAutoScrollEditorIntoView(true);
 		</script>
 		<!-- Clear Execution Container -->
