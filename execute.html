@@ -36,30 +36,21 @@
 						<!-- Code Language Selector -->
 						<div class="col-6 editor_codeselect">
 							<div class="btn-group">
-								<button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Java <i class="fab fa-java"></i>
+								<button id="languageChange" class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Loading...
 								</button>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-									<a class="dropdown-item active" href="#">Java <i class="fab fa-java"></i></a>
-									<a class="dropdown-item disabled" href="#">R</a>
-									<a class="dropdown-item disabled" href="#">Python <i class="fab fa-python"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('java')">Java <i class="fab fa-java"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('python')">Python <i class="fab fa-python"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('r')">R</a>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- Editor -->
-					<div class="row editor">
+					<div class="row">
 <!--Must present final spacing & formatting within PRE tag-->
-<pre id="editor">
-// Example Java Code
-class Main {
-    public static void main(String[] args) {
-        
-        // Print Hello World
-        System.out.println("Hello world!");
-    }
-}
-</pre>					
+<pre id="editor"></pre>					
 					</div>
 					<!--Console-->
 					<div class="row executor_header">
@@ -70,7 +61,7 @@ class Main {
 						<!-- Execution Options -->
 						<div class="col-6 executor_options">
 							<button type="button" class="btn btn-sm btn-warning" onclick="clearExecution()">Clear <i class="fas fa-paint-roller"></i></button>
-							<button type="button" class="btn btn-sm btn-info">Run Code <i class="fas fa-play"></i></button>
+							<button type="button" class="btn btn-sm btn-info disabled">Run Code <i class="fas fa-play"></i></button>
 						</div>
 					</div>
 					<!-- Execution Window -->
@@ -104,15 +95,50 @@ class Main {
 		
 		<!-- Page JavaScript -->
 		<!--========================================================================-->
-		<!-- Code Language Selector -->
 		<!-- Editor Style -->
 		<script src="assets/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-		<script>
+		<script type="text/javascript">
 			var editor = ace.edit("editor");
 			editor.setTheme("ace/theme/twilight");
-			editor.session.setMode("ace/mode/java");
 		    editor.setAutoScrollEditorIntoView(true);
 		</script>
+		
+		<!-- Editor Set Language Mode and Pre-Populated Code -->
+		<script type="text/javascript">
+			
+			// Set Language Tags - Used to populate button text
+			var langTag_java = 'Java <i class=\"fab fa-java\"><\/i>';
+			var langTag_python = 'Python <i class=\"fab fa-python\"><\/i>';
+			var langTag_r = 'R';
+			
+			// Allow Language Change Function
+			function allowLanguageChange(bool) {
+				if(bool == false) {
+					languageChange.disabled = true;
+				}
+				else {
+					languageChange.disable = false;
+				}
+			}
+			
+			// Set Language Function
+			function setLanguage(lang) {
+				// Update Editor
+				var mode = "ace/mode/";
+				editor.session.setMode(mode.concat(lang));
+				
+				// Update Button Text
+				document.getElementById("languageChange").innerHTML = window['langTag_' + lang];	
+			}
+			
+			//////// PER ASSIGNMENT SETTINGS ////////
+			allowLanguageChange(true); 	// Allow or prevent user from changing language. False = Disable Changes, True = Enable Changes.
+			setLanguage("java"); 		// Set Default Language - Can change depending on specific assignment details from rubric.
+			
+			// Set the code provided when user visits the page. Must be EXCAPED text formatted with proper spaceing, as it would be in a PRE tag.
+			editor.setValue('\/\/ Example Java Code\r\nclass Main {\r\n    public static void main(String[] args) {\r\n        \r\n        \/\/ Print Hello World\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}');
+		</script>
+		
 		<!-- Clear Execution Container -->
 		<script type="text/javascript">
 			function clearExecution() {
