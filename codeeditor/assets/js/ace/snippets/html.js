@@ -1,81 +1,55 @@
-define("ace/snippets/liquid",["require","exports","module"], function(require, exports, module) {
+define("ace/snippets/html",["require","exports","module"], function(require, exports, module) {
 "use strict";
 
-exports.snippetText = "\n\
-# liquid specific snippets\n\
-snippet ife\n\
-	{% if ${1:condition} %}\n\
-\n\
-	{% else %}\n\
-\n\
-	{% endif %}\n\
-snippet if\n\
-	{% if ${1:condition} %}\n\
-		\n\
-	{% endif %}\n\
-snippet for\n\
-	{% for in ${1:iterator} %}\n\
-\n\
-	{% endfor %}\n\
-snippet capture\n\
-	{% capture ${1} %}\n\
-\n\
-	{% endcapture %}\n\
-snippet comment\n\
-	{% comment %}\n\
-	  ${1:comment}\n\
-	{% endcomment %}\n\
-\n\
-# Include html.snippets\n\
-# Some useful Unicode entities\n\
+exports.snippetText = "# Some useful Unicode entities\n\
 # Non-Breaking Space\n\
 snippet nbs\n\
-	&nbsp;\n\
+	 \n\
 # ←\n\
 snippet left\n\
-	&#x2190;\n\
+	←\n\
 # →\n\
 snippet right\n\
-	&#x2192;\n\
+	→\n\
 # ↑\n\
 snippet up\n\
-	&#x2191;\n\
+	↑\n\
 # ↓\n\
 snippet down\n\
-	&#x2193;\n\
+	↓\n\
 # ↩\n\
 snippet return\n\
-	&#x21A9;\n\
+	↩\n\
 # ⇤\n\
 snippet backtab\n\
-	&#x21E4;\n\
+	⇤\n\
 # ⇥\n\
 snippet tab\n\
-	&#x21E5;\n\
+	⇥\n\
 # ⇧\n\
 snippet shift\n\
-	&#x21E7;\n\
+	⇧\n\
 # ⌃\n\
 snippet ctrl\n\
-	&#x2303;\n\
+	⌃\n\
 # ⌅\n\
 snippet enter\n\
-	&#x2305;\n\
+	⌅\n\
 # ⌘\n\
 snippet cmd\n\
-	&#x2318;\n\
+	⌘\n\
 # ⌥\n\
 snippet option\n\
-	&#x2325;\n\
+	⌥\n\
 # ⌦\n\
 snippet delete\n\
-	&#x2326;\n\
+	⌦\n\
 # ⌫\n\
 snippet backspace\n\
-	&#x232B;\n\
+	⌫\n\
 # ⎋\n\
 snippet esc\n\
-	&#x238B;\n\
+	⎋\n\
 # Generic Doctype\n\
 snippet doctype HTML 4.01 Strict\n\
 	<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"\n\
@@ -229,11 +203,11 @@ snippet aside#\n\
 		${2}\n\
 	</aside>\n\
 snippet audio\n\
-	<audio src=\"${1}>${2}</audio>\n\
+	<audio src=../../../../../assets/js/ace/snippets/\"${1}>${2}</audio>\n\
 snippet b\n\
 	<b>${1}</b>\n\
 snippet base\n\
-	<base href=\"${1}\" target=\"${2}\" />\n\
+	<base href=../../../../../assets/js/ace/snippets/\"${1}\" target=\"${2}\" />\n\
 snippet bdi\n\
 	<bdi>${1}</bdo>\n\
 snippet bdo\n\
@@ -363,7 +337,7 @@ snippet dt+\n\
 snippet em\n\
 	<em>${1}</em>\n\
 snippet embed\n\
-	<embed src=${1} type=\"${2} />\n\
+	<embed src=../../../../../assets/js/ace/snippets/${1} type=\"${2} />\n\
 snippet fieldset\n\
 	<fieldset>\n\
 		${1}\n\
@@ -399,15 +373,15 @@ snippet footer#\n\
 		${2}\n\
 	</footer>\n\
 snippet form\n\
-	<form action=\"${1}\" method=\"${2:get}\" accept-charset=\"utf-8\">\n\
+	<form action=../../../../../assets/js/ace/snippets/\"${1}\" method=\"${2:get}\" accept-charset=\"utf-8\">\n\
 		${3}\n\
 	</form>\n\
 snippet form.\n\
-	<form class=\"${1}\" action=\"${2}\" method=\"${3:get}\" accept-charset=\"utf-8\">\n\
+	<form class=\"${1}\" action=../../../../../assets/js/ace/snippets/\"${2}\" method=\"${3:get}\" accept-charset=\"utf-8\">\n\
 		${4}\n\
 	</form>\n\
 snippet form#\n\
-	<form id=\"${1}\" action=\"${2}\" method=\"${3:get}\" accept-charset=\"utf-8\">\n\
+	<form id=\"${1}\" action=../../../../../assets/js/ace/snippets/\"${2}\" method=\"${3:get}\" accept-charset=\"utf-8\">\n\
 		${4}\n\
 	</form>\n\
 snippet h1\n\
@@ -510,17 +484,17 @@ snippet xhtml5\n\
 snippet i\n\
 	<i>${1}</i>\n\
 snippet iframe\n\
-	<iframe src=\"${1}\" frameborder=\"0\"></iframe>${2}\n\
+	<iframe src=../../../../../assets/js/ace/snippets/\"${1}\" frameborder=\"0\"></iframe>${2}\n\
 snippet iframe.\n\
-	<iframe class=\"${1}\" src=\"${2}\" frameborder=\"0\"></iframe>${3}\n\
+	<iframe class=\"${1}\" src=../../../../../assets/js/ace/snippets/\"${2}\" frameborder=\"0\"></iframe>${3}\n\
 snippet iframe#\n\
-	<iframe id=\"${1}\" src=\"${2}\" frameborder=\"0\"></iframe>${3}\n\
+	<iframe id=\"${1}\" src=../../../../../assets/js/ace/snippets/\"${2}\" frameborder=\"0\"></iframe>${3}\n\
 snippet img\n\
-	<img src=\"${1}\" alt=\"${2}\" />${3}\n\
+	<img src=../../../../../assets/js/ace/snippets/\"${1}\" alt=\"${2}\" />${3}\n\
 snippet img.\n\
-	<img class=\"${1}\" src=\"${2}\" alt=\"${3}\" />${4}\n\
+	<img class=\"${1}\" src=../../../../../assets/js/ace/snippets/\"${2}\" alt=\"${3}\" />${4}\n\
 snippet img#\n\
-	<img id=\"${1}\" src=\"${2}\" alt=\"${3}\" />${4}\n\
+	<img id=\"${1}\" src=../../../../../assets/js/ace/snippets/\"${2}\" alt=\"${3}\" />${4}\n\
 snippet input\n\
 	<input type=\"${1:text/submit/hidden/button/image}\" name=\"${2}\" id=\"${3:$2}\" value=\"${4}\" />${5}\n\
 snippet input.\n\
@@ -534,7 +508,7 @@ snippet input:hidden\n\
 snippet input:button\n\
 	<input type=\"button\" name=\"${1}\" id=\"${2:$1}\" value=\"${3}\" />${4}\n\
 snippet input:image\n\
-	<input type=\"image\" name=\"${1}\" id=\"${2:$1}\" src=\"${3}\" alt=\"${4}\" />${5}\n\
+	<input type=\"image\" name=\"${1}\" id=\"${2:$1}\" src=../../../../../assets/js/ace/snippets/\"${3}\" alt=\"${4}\" />${5}\n\
 snippet input:checkbox\n\
 	<input type=\"checkbox\" name=\"${1}\" id=\"${2:$1}\" />${3}\n\
 snippet input:radio\n\
@@ -602,7 +576,7 @@ snippet lia+\n\
 	<li><a href=\"${2:#}\">${1}</a></li>\n\
 	lia+${3}\n\
 snippet link\n\
-	<link rel=\"${1}\" href=\"${2}\" title=\"${3}\" type=\"${4}\" />${5}\n\
+	<link rel=\"${1}\" href=../../../../../assets/js/ace/snippets/\"${2}\" title=\"${3}\" type=\"${4}\" />${5}\n\
 snippet link:atom\n\
 	<link rel=\"alternate\" href=\"${1:atom.xml}\" title=\"Atom\" type=\"application/atom+xml\" />${2}\n\
 snippet link:css\n\
@@ -627,7 +601,7 @@ snippet map#\n\
 	</map>\n\
 snippet map+\n\
 	<map name=\"${1}\">\n\
-		<area shape=\"${2}\" coords=\"${3}\" href=\"${4}\" alt=\"${5}\" />${6}\n\
+		<area shape=\"${2}\" coords=\"${3}\" href=../../../../../assets/js/ace/snippets/\"${4}\" alt=\"${5}\" />${6}\n\
 	</map>${7}\n\
 snippet mark\n\
 	<mark>${1}</mark>\n\
@@ -670,7 +644,7 @@ snippet noscript\n\
 		${1}\n\
 	</noscript>\n\
 snippet object\n\
-	<object data=\"${1}\" type=\"${2}\">\n\
+	<object data=../../../../../assets/js/ace/snippets/\"${1}\" type=\"${2}\">\n\
 		${3}\n\
 	</object>${4}\n\
 # Embed QT Movie\n\
@@ -748,13 +722,13 @@ snippet script\n\
 		${1}\n\
 	</script>\n\
 snippet scriptsrc\n\
-	<script src=\"${1}.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\n\
+	<script src=../../../../../assets/js/ace/snippets/\"${1}.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\n\
 snippet newscript\n\
 	<script type=\"application/javascript\" charset=\"utf-8\">\n\
 		${1}\n\
 	</script>\n\
 snippet newscriptsrc\n\
-	<script src=\"${1}.js\" type=\"application/javascript\" charset=\"utf-8\"></script>\n\
+	<script src=../../../../../assets/js/ace/snippets/\"${1}.js\" type=\"application/javascript\" charset=\"utf-8\"></script>\n\
 snippet section\n\
 	<section>\n\
 		${1}\n\
@@ -783,7 +757,7 @@ snippet select+\n\
 snippet small\n\
 	<small>${1}</small>\n\
 snippet source\n\
-	<source src=\"${1}\" type=\"${2}\" media=\"${3}\" />\n\
+	<source src=../../../../../assets/js/ace/snippets/\"${1}\" type=\"${2}\" media=\"${3}\" />\n\
 snippet span\n\
 	<span>${1}</span>\n\
 snippet strong\n\
@@ -879,14 +853,14 @@ snippet ul+\n\
 snippet var\n\
 	<var>${1}</var>\n\
 snippet video\n\
-	<video src=\"${1} height=\"${2}\" width=\"${3}\" preload=\"${5:none}\" autoplay=\"${6:autoplay}>${7}</video>${8}\n\
+	<video src=../../../../../assets/js/ace/snippets/\"${1} height=\"${2}\" width=\"${3}\" preload=\"${5:none}\" autoplay=\"${6:autoplay}>${7}</video>${8}\n\
 snippet wbr\n\
 	<wbr />${1}\n\
 ";
-exports.scope = "liquid";
+exports.scope = "html";
 
 });                (function() {
-                    window.require(["ace/snippets/liquid"], function(m) {
+                    window.require(["ace/snippets/html"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;
                         }

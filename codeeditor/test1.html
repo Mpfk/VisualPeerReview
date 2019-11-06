@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Page Info & Meta -->
+		<!--========================================================================-->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Assignment</title>
+		
+		<!-- Styles & Typefaces -->
+		<!--========================================================================-->
+		<!-- Bootstrap CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<!-- Editor Style -->
+		<link rel="stylesheet" href="assets/css/editor.css">
+		<!-- Rubric Style -->
+		<link rel="stylesheet" href="assets/css/rubric.css">
+		<!-- Executor Style -->
+		<link rel="stylesheet" href="assets/css/executor.css">
+		<!-- Font-Awesome Icons -->
+		<link rel="stylesheet" href="assets/typeface/font-awesome/css/all.min.css">
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+			
+				<!-- Left Panel : Code Editor & Console -->
+				<!--========================================================================-->
+				<div class="col-12 col-md-9">
+					<!-- Editor Header -->
+					<div class="row editor_header">
+						<!-- Section Title -->
+						<div class="col-6">
+							<h2>Editor</h2>
+						</div>
+						<!-- Code Language Selector -->
+						<div class="col-6 editor_codeselect">
+							<div class="btn-group">
+								<button id="languageChange" class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Loading...
+								</button>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item" onclick="setLanguage('java')">Java <i class="fab fa-java"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('javascript')">JavaScript <i class="fab fa-js-square"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('python')">Python <i class="fab fa-python"></i></a>
+									<a class="dropdown-item" onclick="setLanguage('r')">R <i class="fab fa-r-project"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Editor -->
+					<div class="row">
+<!--Must present final spacing & formatting within PRE tag-->
+<pre id="editor"></pre>					
+					</div>
+					<!--Console-->
+					<div class="row executor_header">
+						<!-- Section Title -->
+						<div class="col-6">
+							<h2>Execution</h2>
+						</div>
+						<!-- Execution Options -->
+						<div class="col-6 executor_options">
+							<!-- Clear Code -->
+							<button id="clearCodeButton" type="button" class="btn btn-sm btn-warning" onclick="clearExecution()">Clear <i class="fas fa-paint-roller"></i></button>
+							<!-- Abort Code (Hidden until code is run) -->
+							<button id="abortCodeButton" type="button" class="btn btn-sm btn-danger" onclick="abortExecution()" style="display: none;">Abort <i class="far fa-window-close"></i></button>
+							<!-- Run Code -->
+							<button id="runCodeButton" type="button" class="btn btn-sm btn-info" onClick="runCode()">Run Code <i class="fas fa-play"></i></button>
+						</div>
+					</div>
+					<!-- Execution Window -->
+					<div id="execution_container" class="row execution_container">
+						<!--div class="execution_placeholder">
+							Press 'Run Code <i class="fas fa-play"></i>' button above to execute.
+						</div-->
+						<samp>
+<!--Must present final spacing & formatting within PRE tag-->
+<pre id="execution">Hello world!</pre>
+						</samp>
+					</div>
+				</div>
+				
+				<!-- Right Panel : Info & Submit -->
+				<!--========================================================================-->
+				<div class="col-12 col-md-3 instructions">
+					<!-- Section Title -->
+					<h2>Rubric</h2>
+					<!-- Assignment Info -->
+					<p>Assignment instructions go here.</p>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+					<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
+					<!-- Submit Button -->
+					<div class="rubric_submit">
+						<button class="btn btn-success submit_button disabled">Submit Code <i class="fas fa-paper-plane"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Page JavaScript -->
+		<!--========================================================================-->
+		<!-- Editor Style -->
+		<script src="assets/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var editor = ace.edit("editor");
+			editor.setTheme("ace/theme/twilight");
+		    editor.setAutoScrollEditorIntoView(true);
+		</script>
+		
+		<!-- Editor Set Language Mode and Pre-Populated Code -->
+		<script type="text/javascript">
+			
+			// Set Language Tags - Used to populate button text
+			var langTag_java = 'Java <i class=\"fab fa-java\"><\/i>';
+			var langTag_javascript = 'JavaScript <i class=\"fab fa-js-square\"><\/i>';
+			var langTag_python = 'Python <i class=\"fab fa-python\"><\/i>';
+			var langTag_r = 'R <i class=\"fab fa-r-project\"><\/i>';
+			
+			// Allow Language Change Function
+			function allowLanguageChange(bool) {
+				if(bool == false) {
+					languageChange.disabled = true;
+				}
+				else {
+					languageChange.disabled = false;
+				}
+			}
+			
+			// Set Language Function
+			function setLanguage(lang) {
+				// Update Editor
+				var mode = "ace/mode/";
+				editor.session.setMode(mode.concat(lang));
+				
+				// Update Button Text
+				document.getElementById("languageChange").innerHTML = window['langTag_' + lang];	
+			}
+			
+			//////// PER ASSIGNMENT SETTINGS ////////
+			// Set Provided Code
+			// Set the code provided when user visits the page. Must be EXCAPED text formatted with proper spaceing, as it would be in a PRE tag.
+			var providedCode = '\/\/ Example Java Code\r\nclass Main {\r\n    public static void main(String[] args) {\r\n        \r\n        \/\/ Print Hello World\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}'
+			
+			//TEST CODE PROVED FOR PROF
+			var providedCode = '\/\/ Example JavaScript Code\r\n\/\/ Print Paragraph\r\ndocument.getElementById(\"execution_container\").innerHTML = \'<p>This is an example paragraph. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.<\/p>\';\r\n\r\n\/\/ Find paragraph\r\nvar paragraphs = document.getElementsByTagName(\"p\");\r\n\r\n\/\/ Set Color\r\nfor (var i = 0; i < paragraphs.length; i++) {\r\n  var paragraph = paragraphs.item(i);\r\n  paragraph.style.setProperty(\"color\", \"blue\", null);\r\n}\r\nd3.selectAll(\"p\").style(\"color\", \"blue\");'
+			
+			allowLanguageChange(true); 		// Allow or prevent user from changing language. False = Disable Changes, True = Enable Changes.
+			setLanguage("javascript"); 			// Set Default Language - Can change depending on specific assignment details from rubric.
+			editor.setValue(providedCode);  // Fills Editor with Provided Code
+			
+		</script>
+		
+		<!-- Execution Scripts -->
+		<script type="text/javascript">
+			
+			// Re-EnableRunCode -- Resets the RunCodeButton
+			function reEnableRunCode() {
+				runCodeButton.disabled = false;
+				document.getElementById("runCodeButton").innerHTML = 'Run Code <i class=\"fas fa-play\"><\/i>';
+				// Hide Abort Button and Replace with Clear Button
+				document.getElementById("clearCodeButton").style.display = "inline";
+				document.getElementById("abortCodeButton").style.display = "none";
+			}
+			
+			// Clear Execution Function
+			function clearExecution() {
+				document.getElementById("execution_container").innerHTML = '<div class="execution_placeholder">Press \'Run Code <i class="fas fa-play"></i>\' button above to execute.</div>';
+			}
+			
+			// TimeOut Functuon -- Defines what happens when the execution times out
+			function timeOut() {
+				// Display Error
+				document.getElementById("execution_container").innerHTML = '<div class="execution_placeholder text-danger">An error occured when trying to compile your code. Time limit exceeded.</div>';
+				reEnableRunCode();
+			}
+			
+			// Set TimeOut Variable
+			var timeOutClock;
+			
+			// Run Code Function
+			function runCode() {
+				// Disable runCode Button & Change Value to prevent double-presses
+				runCodeButton.disabled = true;
+				document.getElementById("runCodeButton").innerHTML = 'Compiling <i class=\"fas fa-terminal\"><\/i>';
+				
+				// Hide Clear Button and Replace with Abort Button
+				document.getElementById("clearCodeButton").style.display = "none";
+				document.getElementById("abortCodeButton").style.display = "inline";
+				
+				// Empty Execution Continer
+				document.getElementById("execution_container").innerHTML = null;
+				
+				// Display Loading Animation
+				document.getElementById("execution_container").innerHTML = "<div class=\"loader\"><\/div>";
+				
+				// Start Timer, if execution is not returned before timer ends throw an error
+				timeOutClock = setTimeout(timeOut, 3000);
+				
+				// SEND CODE TO SERVER AND GET A RESPONSE
+				// NEED MORE INFO REGARDING SERVER ARCHITECTURE
+				// 
+				//
+				
+				// JAVASCRIPT EXAMPLE
+				// Get Code from Editor
+				var code = editor.getValue();
+				eval(code);
+				
+				
+				
+				// Cancel Timer
+				//clearTimeout(timeOutClock);
+				
+				// Re-Enable runCode Button
+				//reEnableRunCode();
+			}
+			
+			// Abort Execution Function
+			/*function abortExecution() {
+				clearTimeout(timeOutClock);
+				clearExecution();
+				reEnableRunCode();
+			}
+			
+			
+			// Run JavaScript
+			
+		</script>
+		
+		<!-- On Leave Warning -->
+		<!--script type="text/javascript">
+			// Warning before leaving the page (back button, or outgoinglink)
+			window.onbeforeunload = function() {
+				return "Are you sure you want to reload/leave this page? Doing so will eliminate all your work in the editor!";
+			};
+		</script-->
+		
+		<!-- Bootstrap CDN JavaScript -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>

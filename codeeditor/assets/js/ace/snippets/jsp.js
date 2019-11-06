@@ -59,13 +59,13 @@ snippet cimport+\n\
 	</c:import>\n\
 snippet curl\n\
 	<c:url value=\"${1}\" var=\"${2}\" />\n\
-	<a href=\"${$2}\">${3}</a>\n\
+	<a href=../../../../../assets/js/ace/snippets/\"${$2}\">${3}</a>\n\
 snippet curl+\n\
 	<c:url value=\"${1}\" var=\"${2}\">\n\
 		<c:param name=\"${4}\" value=\"${5}\" />\n\
 		cparam+${6}\n\
 	</c:url>\n\
-	<a href=\"${$2}\">${3}</a>\n\
+	<a href=../../../../../assets/js/ace/snippets/\"${$2}\">${3}</a>\n\
 snippet credirect\n\
 	<c:redirect url=\"${1}\" />\n\
 snippet contains\n\
