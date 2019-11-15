@@ -114,6 +114,12 @@ h1 {
 	color: var(--primary);
 }
 
+/* Active Navigation Element */
+.nav-active {
+	/* Set color of active element to secondary */
+	color: var(--secondary) !important;
+}
+
 /* Logo */
 .logo {
 	height: 50px;
