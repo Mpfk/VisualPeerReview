@@ -194,3 +194,62 @@ footer a:hover {
 	/* On hover, set color to primary. */
 	color: var(--primary);
 }
+
+
+
+
+/* ==================================================================================  */
+/* Action Header */
+/* Header Title and list for a specific action. */
+/* ==================================================================================  */
+
+/* Action Header Title */
+.action-header h3 {
+	/* Adjust Positioning */
+	display: inline-block;
+}
+
+/* Action Steps List */
+.action-header ul {
+	/* Adjust Positioning */
+	display: inline-block;
+	
+	/* Adjust spacing between title and list */
+	padding-left: 10px;
+	
+	/* Set Color to Offset */
+	color: var(--offset);
+}
+
+/* Action Steps List Items */
+.action-header li {
+	/* Adjust Positioning */
+	display: inline-block;
+}
+
+
+
+
+/* ==================================================================================  */
+/* Type Styles */
+/* Specific Type Settings. */
+/* ==================================================================================  */
+
+/* Subtext */
+.subtext {
+	/* Reduce font size */
+	font-size: smaller;
+	
+	/* Set color to offset */
+	color: var(--offset);
+	
+	/* Spacing */
+	margin-top: 0.5em;
+}
+
+/* Forgot Passwork Link */
+.forgot-password {
+	font-size: smaller;
+	padding-left: 1.5em;
+	vertical-align: middle;
+}
