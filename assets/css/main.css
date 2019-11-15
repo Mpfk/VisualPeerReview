@@ -1,0 +1,176 @@
+/*
+	======================
+	Visual Peer Review
+	---------------------
+	main.css
+	---------------------
+	The main stylesheet file. 
+	Contains properties for background, containers, and elements used on all pages.
+*/
+
+
+
+
+/* ==================================================================================  */
+/* Root Variables */
+/* Use these variables for consistant styles throughout the website.
+   Variables make it easier to update style items across the entire website. */
+/* ==================================================================================  */
+
+:root {
+	/* Color Pallete */
+	--primary: #5C4D88;
+	--primary: #7E54A3;
+	--offset: #707070;
+	--background-color: #FDFDFD;
+	--footer-bgcolor: rgba(0, 0, 0, 0.9);
+	--footer-textcolor: white;
+}
+
+
+
+
+/* ==================================================================================  */
+/* Root Elemtnts */
+/* The following elements are styled. */
+/* ==================================================================================  */
+
+/* Body Element */
+body {
+	/* Near-white background color. */
+	background-color: var(--background-color);
+	
+	/* Body typeface: Open Sans (Google Fonts https://fonts.google.com/specimen/Open+Sans). */
+    font-family: 'Open Sans', sans-serif;
+	
+	/* Set Proper PageHeight Spacing & Position for the Footer */
+	height: 100%;
+ 	position: relative;
+}
+
+/* Section Headers */
+h1, h2, h3, h4 {
+	/* Heading typeface: Dosis (Google Fonts https://fonts.google.com/specimen/Dosis?selection.family=Dosis:400,700,800). */
+    font-family: 'Dosis', sans-serif;
+
+	/* Primary color. */
+	color: var(--primary);
+}
+h1 {
+	/* Increased weight. */
+	font-weight: 700;
+}
+
+
+
+
+/* ==================================================================================  */
+/* Spacing Options */
+/* Use these classes for consistant spacing between elemetns. */
+/* ==================================================================================  */
+
+/* Section Spacing */
+.space-section {
+	padding-top: 50px;
+}
+
+
+
+
+/* ==================================================================================  */
+/* Navigation Bar */
+/* The following classes define styles for the navagation bar at the top of each page. */
+/* ==================================================================================  */
+
+/* Navigation Element */
+.navbar {
+	/* Spacing */
+	margin: 0;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+/* Navigation Item */
+.nav-item {
+	/* Transparent border for consistant 'on-hover' spacing. */
+	border-bottom: solid thick rgba(253, 253, 253, 0);
+}
+.nav-item:hover {
+	/* On hover, show an underlined border. */
+	border-bottom: solid thick;
+	/* On hover, set underlined border to 'Primary' color. */
+	border-color: var(--primary);
+}
+
+/* Navigation Links */
+.navbar a {
+	/* Set color to 'Offset' */
+	color: var(--offset);
+}
+.navbar a:hover {
+	/* On hover, set color to 'Primary' */
+	color: var(--primary);
+}
+
+
+
+
+/* ==================================================================================  */
+/* Footer */
+/* The following classes define styles for the footer at the bottom of each page. */
+/* ==================================================================================  */
+
+/* Footer Element */
+footer {
+	/* Footer margin */
+	margin-top: 5em;
+	
+	/* Footer padding */
+	padding-top: 3em;
+	padding-bottom: 5em;
+	
+	/* Footer background color */
+	background-color: var(--footer-bgcolor);
+	
+	/* Footer text color */
+	color: var(--footer-textcolor);
+}
+
+/* Footer column. */
+.footer-col {
+	/* Align text to the left of the column. */
+	text-align: left;
+}
+
+/* Footer Headings */
+footer h1, footer h2, footerh3, footer h4 {
+	/* Set color of footer headings to 'footer-textcolor.' */
+	color: var(--footer-textcolor);
+}
+
+/* Footer Lists */
+footer ul {
+	/* Remove padding from list. */
+	padding: 0;
+	
+	/* Remove bullets / list points. */
+	list-style: none;
+	
+	/* Reduce text size. */
+	font-size: smaller;
+}
+
+/* Footer Links */
+footer a {
+	/* Remove text decoration. */
+	text-decoration: none;
+	
+	/* Set color to white. */
+	color: white;
+}
+footer a:hover {
+	/* On hover, set color to primary. */
+	color: var(--primary);
+}
