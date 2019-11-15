@@ -64,3 +64,32 @@
 	/* Add spacing below icon */
 	padding-bottom: 10px;
 }
+
+/* For medium sized screens and larger, apply */
+@media (min-width: 768px) {
+	
+	/* Section One */
+	.dual-focus .section-one {
+		/* Spacing between sections */
+		padding-right: 2em;
+	}
+	
+	/* Section Two */
+	.dual-focus .section-two {
+		/* Spacing between sections */
+		padding-left: 2em;
+		
+		/* Partition border between sections */
+		border-left: thin solid;
+		border-color: var(--offset);
+	}
+}
+
+/* For smaller sized screens, apply */
+@media (max-width: 768px) {
+	/* Section Two */
+	.dual-focus .section-two {
+		/* Vertical Spacing betwen sections */
+		margin-top: 5em;
+	}
+}
