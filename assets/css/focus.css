@@ -25,6 +25,8 @@
 	/* Center Elements within Container */
 	text-align: center;
 }
+
+/* Focus Icon */
 .single-focus .focus-icon {
 	/* Set Icon to Primary Color */
 	color: var(--primary);
@@ -34,4 +36,31 @@
 	
 	/* Add spacing below icon */
 	padding-bottom: 20px;
+}
+
+
+
+
+/* ==================================================================================  */
+/* Dual Focus */
+/* Styles for pages that require focus on two items or elements. */
+/* ==================================================================================  */
+
+/* Dual-Focus Container */
+.dual-focus {
+	/* Spacing */
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+/* Focus Icon */
+.dual-focus .focus-icon {
+	/* Set Icon to Primary Color */
+	color: var(--primary);
+	
+	/* Set Icon Size */
+	font-size: 4em;
+	
+	/* Add spacing below icon */
+	padding-bottom: 10px;
 }
