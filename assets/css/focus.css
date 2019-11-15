@@ -1,0 +1,37 @@
+/*
+	======================
+	Visual Peer Review
+	---------------------
+	focus.css
+	---------------------
+	A supplementary stylesheet file. 
+	Contains properties for single and multi-focus pages.
+*/
+
+
+
+
+/* ==================================================================================  */
+/* Single Focus */
+/* Styles for pages that require focus on a single item or element. */
+/* ==================================================================================  */
+
+/* Single-Focus Container */
+.single-focus {
+	/* Spacing */
+	margin-top: 100px;
+	margin-bottom: 100px;
+	
+	/* Center Elements within Container */
+	text-align: center;
+}
+.single-focus .focus-icon {
+	/* Set Icon to Primary Color */
+	color: var(--primary);
+	
+	/* Set Icon Size */
+	font-size: 8em;
+	
+	/* Add spacing below icon */
+	padding-bottom: 20px;
+}

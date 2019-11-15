@@ -20,7 +20,7 @@
 :root {
 	/* Color Pallete */
 	--primary: #5C4D88;
-	--primary: #7E54A3;
+	--secondary: #7E54A3;
 	--offset: #707070;
 	--background-color: #FDFDFD;
 	--footer-bgcolor: rgba(0, 0, 0, 0.9);
@@ -118,6 +118,17 @@ h1 {
 .logo {
 	height: 50px;
 }
+
+/* Menu Button */
+.navbar-toggler {
+	/* Set color of menu button */	
+	color: var(--primary);
+}
+.navbar-toggler:hover {
+	/* On hover, change color to secondary */
+	color: var(--secondary);
+}
+
 
 
 /* ==================================================================================  */
