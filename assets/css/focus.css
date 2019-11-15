@@ -38,6 +38,11 @@
 	padding-bottom: 20px;
 }
 
+/* Input Element */
+.single-focus input {
+	text-align: center;
+}
+
 
 
 
