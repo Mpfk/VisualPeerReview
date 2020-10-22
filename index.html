@@ -1,120 +1,104 @@
 <!doctype html>
 <html>
-	<head>
-		<title>VisualPeerReview Development Server</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<!-- Font-Awesome Icons -->
-		<link rel="stylesheet" href="codeeditor/assets/typeface/font-awesome/css/all.min.css">
-		<link rel="stylesheet" href="assets/css/color-purple.css">
-		<!-- Page Style -->
-		<style type="text/css">
-			.pad-above {
-				padding-top: 5em;
-			}
-			.pad-below {
-				padding-bottom: 5em;
-			}
-			.buttonmarg {
-				margin-top: 0.25em;
-			}
-		</style>
-	</head>
-	
-	<body>
-		<div class="container">
-			<div class="row" style="margin-top: 1em;">
-				<div class="col-12">
-					<h1><img src="assets/img/Logo_Icon.png" height="85em" alt="Logo"> VisualPeerReview Development</h1>
-				</div>
-			</div>
-			<div class="row" style="margin-top: 5em;">
-				<div class="col-12">
-					<div class="row buttonmarg dropright">
-						<button class="btn btn-purple dropdown-toggle" type="button" id="templateMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-primary">New!</span>&nbsp;&nbsp;View Templates </button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="templates/main-body.html">Main-Body</a>
-							<a class="dropdown-item" href="templates/single-focus.html">Single-Focus Item</a>
-							<a class="dropdown-item" href="templates/dual-focus.html">Dual-Focus Item</a>
-						</div>
-					</div>
-					<div class="row buttonmarg">
-						<a class="btn btn-purple" href="sign-in.html" target="new"><span class="badge badge-primary">New!</span>&nbsp;&nbsp;View Website Structure</a>
-					</div>
-					<div class="row buttonmarg">
-						<a class="btn btn-purple" href="#UXDiagram">View User Experience (UX) Diagram</a>
-					</div>
-					<div class="row buttonmarg">
-						<a class="btn btn-purple" href="https://xd.adobe.com/view/d82fecb5-e71f-438f-6fc8-c891249d2578-ae1e/" target="_blank">View User Experience (UX) Prototype</a>
-					</div>
-					<div class="row">
-						<p>Links to an Adobe XD Prototype file. Interactive example of the application user experience.</p>
-					</div>
-					<div class="row buttonmarg">
-						<a class="btn btn-purple disabled" href="codeeditor/execute.html" target="_blank">Browser IDE Example</a>
-					</div>
-					<div class="row buttonmarg" style="margin-top: 2em">
-						<a class="btn btn-primary" href="https://github.com/Mpfk/VisualPeerReview" target="_blank">Source Code on GitHub <i class="fab fa-github"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="row pad-above">
-				<div class="col-12 col-md-6">					
-					<h3>To-Do List:</h3>
-					<ul class="list-group">
-						<li class="list-group-item list-group-item-success">Spin up a development website for testing on server.</li>
-						<li class="list-group-item list-group-item-success">Create breakdown of tasks.</li>
-						<li class="list-group-item list-group-item-success">Create code editor enviroment.</li>
-						<li class="list-group-item list-group-item-success">Implement styling/validation to editor.</li>
-						<li class="list-group-item list-group-item-danger"><em>FLASK Backend</em></li>
-						<li class="list-group-item list-group-item-danger"><em>Create Docker instances for each language</em></li>
-						<li class="list-group-item list-group-item-success">Create User Experience (UX) Diagram</li>
-						<li class="list-group-item list-group-item-success">Prelim Graphic Design</li>
-						<li class="list-group-item list-group-item-success">Develop UX Prototype</li>
-						<li class="list-group-item list-group-item-warning">reactJS</li>
-						<li class="list-group-item list-group-item-warning">Front-End Development</li>
-						<ul class="list-group-item">
-							<li class="list-group-item list-group-item-success">Site Structure</li>
-							<li class="list-group-item list-group-item-success">Navigation</li>
-							<li class="list-group-item list-group-item-warning">Universal Styles</li>
-							<li class="list-group-item list-group-item-warning">Sign-In Page</li>
-							<li class="list-group-item list-group-item-warning">Register Page</li>
-							<li class="list-group-item list-group-item">Dashboard</li>
-							<li class="list-group-item list-group-item">New Project Page</li>
-							<li class="list-group-item list-group-item">Project Page</li>
-							<li class="list-group-item list-group-item">Edit Project Page</li>
-							<li class="list-group-item list-group-item">Peer Review Page</li>
-						</ul>
-						<li class="list-group-item">Get Page Description &amp; Info For Home Page</li>
-						<li class="list-group-item">Structure Review</li>
-						<li class="list-group-item">Determine how code execution will be saved to database.</li>
-					</ul>
-				</div>
-				<div class="col-12 col-md-6">
-					<h3>Research Links:</h3>
-					<ul>
-						Primary Help:
-						<li><a href="https://xania.org/201609/how-compiler-explorer-runs-on-amazon">https://xania.org/201609/how-compiler-explorer-runs-on-amazon</a></li>
-						<li><a href="https://github.com/polterguy/phosphorusfive">https://github.com/polterguy/phosphorusfive</a></li>
-						<li><a href="https://palletsprojects.com/p/flask/">https://palletsprojects.com/p/flask/</a></li>
-					</ul>
-					<iframe src="http://tylerlh.github.com/github-latest-commits-widget/?username=Mpfk&repo=VisualPeerReview&limit=10" allowtransparency="true" frameborder="0" scrolling="no" width="502px" height="252px"></iframe>
-				</div>
-			</div>
-			<div class="row pad-above pad-below" id="UXDiagram">
-				<div class="col-12">
-					<h3>User Experience (UX) Diagram</h3>
-					<p>Structure / Layout. The way pages and naviation will be organizaed.</p>
-					<h4>Phase One</h4>
-					<img src="assets/img/Phase-One.png" class="img-responsive" width="70%">
-					<h4>Phase Two</h4>
-					<img src="assets/img/Phase-Two.png" class="img-responsive" width="70%">
-				</div>
-			</div>
-		</div>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
+
+<head>
+    <title>VisualPeerReview Development Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font-Awesome Icons -->
+    <link rel="stylesheet" href="codeeditor/assets/typeface/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/color-purple.css">
+    <!-- Page Style -->
+    <style type="text/css">
+        .pad-above {
+            padding-top: 5em;
+        }
+        
+        .pad-below {
+            padding-bottom: 5em;
+        }
+        
+        .buttonmarg {
+            margin-top: 0.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 1em;">
+            <div class="col-12">
+                <h1><img src="assets/img/Logo_Icon.png" height="85em" alt="Logo"> VisualPeerReview Development</h1>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5em;">
+            <div class="col-12">
+                <div class="row buttonmarg" style="margin-top: 2em">
+                    <a class="btn btn-primary" href="https://github.com/Mpfk/VisualPeerReview" target="_blank">Source Code on GitHub <i class="fab fa-github"></i></a>
+                </div>
+                <div class="row buttonmarg" style="margin-top: 2em">
+                    <a class="btn btn-success" href="peer-review.html" target="new">View the Proof of Concept Demo</a>
+                </div>
+            </div>
+        </div>
+        <div class="row pad-above">
+            <div class="col-12 col-md-6">
+                <h3>To-Do List:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">Spin up a development website for testing on server.</li>
+                    <li class="list-group-item list-group-item-success">Create breakdown of tasks.</li>
+                    <li class="list-group-item list-group-item-success">Create code editor enviroment.</li>
+                    <li class="list-group-item list-group-item-success">Implement styling/validation to editor.</li>
+                    <li class="list-group-item list-group-item-danger"><em>FLASK Backend</em></li>
+                    <li class="list-group-item list-group-item-danger"><em>Create Docker instances for each language</em></li>
+                    <li class="list-group-item list-group-item-success">Create User Experience (UX) Diagram</li>
+                    <li class="list-group-item list-group-item-success">Prelim Graphic Design</li>
+                    <li class="list-group-item list-group-item-success">Develop UX Prototype</li>
+                    <li class="list-group-item list-group-item-warning">reactJS</li>
+                    <li class="list-group-item list-group-item-warning">Front-End Development</li>
+                    <ul class="list-group-item">
+                        <li class="list-group-item list-group-item-success">Site Structure</li>
+                        <li class="list-group-item list-group-item-success">Navigation</li>
+                        <li class="list-group-item list-group-item-success">Universal Styles</li>
+                        <li class="list-group-item list-group-item-success">Sign-In Page</li>
+                        <li class="list-group-item list-group-item-danger">Register Page</li>
+                        <li class="list-group-item list-group-item-warning">Dashboard</li>
+                        <li class="list-group-item list-group-item-success">New Project Page</li>
+                        <li class="list-group-item list-group-item">Project Page</li>
+                        <li class="list-group-item list-group-item">Edit Project Page</li>
+                        <li class="list-group-item list-group-item-warning">Peer Review Page</li>
+                    </ul>
+                    <li class="list-group-item">Get Page Description &amp; Info For Home Page</li>
+                    <li class="list-group-item">Structure Review</li>
+                    <li class="list-group-item">Determine how code execution will be saved to database.</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>Research Links:</h3>
+                <ul>
+                    Primary Help:
+                    <li><a href="https://xania.org/201609/how-compiler-explorer-runs-on-amazon">https://xania.org/201609/how-compiler-explorer-runs-on-amazon</a></li>
+                    <li><a href="https://github.com/polterguy/phosphorusfive">https://github.com/polterguy/phosphorusfive</a></li>
+                    <li><a href="https://palletsprojects.com/p/flask/">https://palletsprojects.com/p/flask/</a></li>
+                </ul>
+                <iframe src="http://tylerlh.github.com/github-latest-commits-widget/?username=Mpfk&repo=VisualPeerReview&limit=10" allowtransparency="true" frameborder="0" scrolling="no" width="502px" height="252px"></iframe>
+            </div>
+        </div>
+        <div class="row pad-above pad-below" id="UXDiagram">
+            <div class="col-12">
+                <h3>User Experience (UX) Diagram</h3>
+                <p>Structure / Layout. The way pages and naviation will be organizaed.</p>
+                <h4>Phase One</h4>
+                <img src="assets/img/Phase-One.png" class="img-responsive" width="70%">
+                <h4>Phase Two</h4>
+                <img src="assets/img/Phase-Two.png" class="img-responsive" width="70%">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
 </html>
