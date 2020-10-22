@@ -1,0 +1,353 @@
+<!doctype html>
+<!--
+	======================
+	Visual Peer Review
+	---------------------
+	main-body.html
+	---------------------
+	Template: Main-Body Page
+-->
+
+<html>
+
+<head>
+    <!-- Page Meta Tags -->
+    <!--======================-->
+    <meta charset="UTF-8">
+    <title>Visual Peer Review | Peer-Review</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CDN  -->
+    <!--======================-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Marker.js CDN -->
+    <!--======================-->
+    <script src="https://unpkg.com/markerjs"></script>
+
+    <!-- JQuery -->
+    <!--======================-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+    <!-- LIVE PREVIEW TO STATIC CONVERSION SCRIPT -->
+    <!--======================-->
+    <script>
+        $(document).ready(function() {
+            $("#convertToStatic").click(function() {
+                $("#convertToStatic").hide();
+                $("#preview-live").hide();
+                $("#annotateToolbar").show();
+                $("#preview-static").show();
+            });
+        });
+    </script>
+
+
+
+
+    <!-- LIVE PREVIEW TO STATIC CONVERSION SCRIPT -->
+    <!--======================-->
+    <script>
+        $('.feedback-icon').click(function() {
+            $(this).toggleClass('selected');
+        });
+    </script>
+
+
+
+    <!-- ANNOTATION SCRIPT -->
+    <!--======================-->
+    <script>
+        function showMarkerJs(img, config) {
+            let mark = new markerjs.MarkerArea(img, config);
+            mark.show((dataUrl) => {
+                img.src = dataUrl;
+            });
+        }
+
+        let markerArea;
+        let targetImg;
+
+        function showApiMarkerJs(img) {
+            targetImg = img;
+            markerArea = new markerjs.MarkerArea(img);
+            markerArea.open();
+            document.getElementById('apiDemoToolbar').style.visibility = 'visible';
+        }
+
+        function addArrow(evt) {
+            evt.preventDefault();
+            if (markerArea) {
+                markerArea.addMarker(markerjs.ArrowMarker);
+            }
+        }
+
+        function renderAndClose(evt) {
+            evt.preventDefault();
+            if (markerArea) {
+                markerArea.render((dataUrl) => {
+                    targetImg.src = dataUrl;
+                    markerArea.close();
+                    document.getElementById('apiDemoToolbar').style.visibility = 'hidden';
+                });
+            }
+        }
+    </script>
+
+
+    <!-- Stylesheets -->
+    <!--======================-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color-purple.css">
+    <link rel="stylesheet" href="assets/css/feedback-styles.css">
+    <link rel="stylesheet" href="assets/css/hover-min.css">
+
+
+    <!-- Typefaces -->
+    <!--======================-->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700,800|Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f382be9c25.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <!--======================-->
+    <nav class="navbar navbar-expand-lg">
+        <!-- Visual Peer Review Logo -->
+        <a class="navbar-brand" href="#"><img class="logo" src="assets/img/Logo_Logo-Nav-80.png" alt="Visual Peer Review Logo"></a>
+
+        <!-- Small-width screen menu button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-caret-square-down"></i>
+			</button>
+
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!-- ITEM: Home -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <!-- ITEM: About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+                <!-- ITEM: Sign-In / Register -->
+                <li class="">
+                    <span class="nav-link user-hello">Hello, [[FirstName]] <i class="fas fa-user-circle"></i></span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Page Body -->
+    <!--======================-->
+    <div class="container">
+        <!-- Row -->
+        <div class="row">
+            <!-- Full-Width -->
+            <div class="col-12">
+                <!-- Page Title -->
+                <h1>Peer Review</h1>
+
+                <!-- Project Details -->
+                <div class="proj-title">
+                    [[Project Title]] by [[Project Author]]
+                </div>
+                <p>[[Project description and notes from the project author will appear here.]]</p>
+
+                <!-- GitHub Source Code Button -->
+                <button class="btn btn-sm btn-purple">Link to Peer Review Git Repo <i class="fab fa-github"></i></button>
+            </div>
+        </div>
+        <hr style="margin-bottom: 2em;">
+
+        <!-- Row -->
+        <div class="row">
+
+            <!-- Annotation Panel -->
+            <!----------------------------->
+            <div class="col-12 col-md-8">
+                <h2>Annotation Panel</h2>
+
+                <!-- START Annotation Options -->
+
+                <!-- Begin Annotation Button -->
+                <div>
+                    <button id="convertToStatic" class="btn btn-sm btn-dark">Begin To Annotate <i class="far fa-edit"></i></button>
+                </div>
+
+                <!-- Annotation Options -->
+                <div id="annotateToolbar" style="display:none;">
+                    <button class="btn btn-sm btn-dark disabled" onclick="addRect();">Box <i class="fas fa-draw-polygon"></i></button>
+                    <button class="btn btn-sm btn-dark disabled" onclick="addHighlight();">Highlight <i class="fas fa-highlighter"></i></button>
+                    <button class="btn btn-sm btn-dark disabled" onclick="addArrow();">Arrow <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn btn-sm btn-dark disabled" onclick="deleteMarker();">Remove Item <i class="fas fa-eraser"></i></button><br><em>Click image below to annotate the visualization.</em>
+                </div>
+
+
+                <hr>
+                <!-- END Annotation Options -->
+
+
+                <!----------------------------->
+                <!-- Live Preview Window -->
+                <div id="preview-live" class="embed-responsive embed-responsive-4by3" onClick="showMarkerJs();">
+                    <iframe class="embed-responsive-item" scrolling="yes" src="assets/example-sourcecode/live.html"></iframe>
+                </div>
+
+                <!----------------------------->
+                <!-- Static Annotation Window -->
+                <div id="preview-static" style="display:none;">
+                    <img src="assets/example-sourcecode/static.png" class="img-fluid" onClick="showMarkerJs(this);">
+                </div>
+
+            </div>
+            <!-- END Annotation Panel -->
+            <!----------------------------->
+
+
+            <!-- Review Panel -->
+            <!----------------------------->
+            <div class="col-12 col-md-4">
+                <h2>Feedback Panel</h2>
+                <!-- Project Description -->
+                <p>A description about this project's requirements goes here. This paragraph/description can be set by the professor to describe the project expectations.</p>
+
+                <!-- Comment Feedback Element -->
+                <!----------------------------------------------------------------------------->
+                <hr>
+                <div class="feedback-comment form-group">
+                    <label for="feedbackElement">Comment element question.</label>
+                    <textarea class="form-control" id="feedbackElement" rows="2" placeholder="Enter Comments Here"></textarea>
+                </div>
+
+
+                <!-- Icon Feedback Element -->
+                <!----------------------------------------------------------------------------->
+                <hr>
+                <label for="feedbackElement">Icon element question.</label>
+                <div id="feedback-icons" class="feedback-icons">
+                    <span class="feedback-icon hvr-grow"><i class="far fa-thumbs-up" data-toggle="tooltip" data-placement="bottom" title="Positive"></i></span>
+                    <span class="feedback-icon hvr-grow"><i class="far fa-thumbs-down" data-toggle="tooltip" data-placement="bottom" title="Negative"></i></span>
+                    <span class="feedback-icon hvr-grow"><i class="far fa-smile" data-toggle="tooltip" data-placement="bottom" title="Happy"></i></span>
+                    <span class="feedback-icon hvr-grow"><i class="far fa-heart" data-toggle="tooltip" data-placement="bottom" title="Love"></i></span>
+                    <span class="feedback-icon hvr-grow"><i class="far fa-flushed" data-toggle="tooltip" data-placement="bottom" title="Confused"></i></span>
+                </div>
+                <!----------------------------------------------------------------------------->
+
+
+                <!-- Score Feedback Element -->
+                <!----------------------------------------------------------------------------->
+                <hr>
+                <label for="feedbackElement">Score element question.</label>
+                <div class="feedback-score">
+                    <label>Low</label>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-dark">1</button>
+                        <button type="button" class="btn btn-dark">2</button>
+                        <button type="button" class="btn btn-dark">3</button>
+                        <button type="button" class="btn btn-dark">4</button>
+                        <button type="button" class="btn btn-dark">5</button>
+                    </div>
+                    <label>High</label>
+                </div>
+
+                <!----------------------------------------------------------------------------->
+
+
+                <!-- Submit Review -->
+                <!----------------------------------------------------------------------------->
+                <hr>
+                <div>
+                    <button class="btn btn-large btn-purple" style="width: 100%">
+							Submit Review <i class="fas fa-clipboard-check"></i>
+						</button>
+                </div>
+                <!----------------------------------------------------------------------------->
+
+
+            </div>
+            <!-- END Review Panel -->
+            <!----------------------------->
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <!--======================-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Footer Column One -->
+                <div class="footer-col col-12 col-md-4">
+                    <h4>Section One</h4>
+                    <!-- List of Links -->
+                    <ul>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Column Two -->
+                <div class="footer-col col-12 col-md-4">
+                    <h4>Section Two</h4>
+                    <!-- List of Links -->
+                    <ul>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Column Three -->
+                <div class="footer-col col-12 col-md-4">
+                    <h4>Section Three</h4>
+                    <!-- List of Links -->
+                    <ul>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                        <li><a href="#">Example Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Javascript Libraries -->
+    <!--======================-->
+    <!-- Load ReactJS -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load React component. -->
+    <script src="../like_button.js"></script>
+
+    <!-- PopperJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Tooltip Functions -->
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <!--======================-->
+
+</body>
+
+</html>
