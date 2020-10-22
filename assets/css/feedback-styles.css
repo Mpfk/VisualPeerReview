@@ -1,0 +1,74 @@
+/*
+	======================
+	Visual Peer Review
+	---------------------
+	feedback-styles.css
+	---------------------
+	Contains properties for styling the feedback elemenets shown on the peer-review pages.
+*/
+
+
+
+/* ==================================================================================  */
+/* Variables */
+/* Variables for the Peer-Review Page and Feedback Elements. */
+/* ==================================================================================  */
+:root {
+	/* Color Pallete */
+	--selector: #23272b;
+}
+
+
+/* ==================================================================================  */
+/* Comment Element */
+/* Styling for Comment Element. */
+/* ==================================================================================  */
+.feedback-comment {
+	
+}
+
+
+
+/* ==================================================================================  */
+/* Icons Element */
+/* Styling for Icons Element. */
+/* ==================================================================================  */
+.feedback-icons {
+	/* Center feeback icons and set sizes */
+	text-align: center;
+	font-size: 1.75em;
+}
+
+.feedback-icons span {
+	/* Give each feedback icon spacing and set the color */
+	padding: 0 0.25em;
+	color: var(--selector);
+}
+
+.feedback-icons span:hover {
+	/* Define user interaction when icon is hovered. */
+	color: var(--secondary); 	/* Set the color */
+}
+
+
+.feedback-icons .selected {
+	/* Change the style for an icon that has been selected. */
+	color: var(--primary); 	/* Set the color */
+	font-size: 1.25em; 		/* Make the size slightly larger */
+}
+
+
+
+/* ==================================================================================  */
+/* Score Element */
+/* Styling for Score Element. */
+/* ==================================================================================  */
+.feedback-score {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.feedback-score label {
+	margin: 0.5em;
+	color: var(--offset);
+}
